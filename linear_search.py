@@ -3,7 +3,7 @@ def linearsearch(arr,key):
     position=0
     for i in arr:
         if key==i:
-            return ("found key at %d %d" % (key,position))
+            return ("found key at %d in position %d" % (key,position))
             flag=flag+1
         position=position+1
     if flag==0:
