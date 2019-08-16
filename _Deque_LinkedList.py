@@ -38,20 +38,28 @@ class DequeLinked:
         self._head=self._head._next
         if self.is_empty():
             self._tail=None
+        self._size-=1
         return value
     def remove_last(self):
+        value=0
         if self.is_empty():
             raise Empty("Empty Queue")
         temp=self._head
-        while temp._next._next:
-            temp=temp._next
-        value=temp._element
-        self._tail=temp
-        self._tail._next=None
-        self._size+-1
+        if len(self)==1:
+            self._tail=None
+            self._head=None
+        else:
+            while temp._next._next:
+                temp=temp._next
+            value=temp._element
+            self._tail=temp
+            self._tail._next=None
+        self._size-=1
         return value
     def display(self):
         temp=self._head
+        if temp==None:
+            print("Non items to prints")
         while temp:
             print(temp._element,end ="-->")
             temp=temp._next
@@ -71,4 +79,11 @@ if __name__=="__main__":
     d.display()
     d.remove_first()
     d.display()
+    d.remove_first()
+    d.display()
+    d.remove_last()
+    d.display()
+    d.remove_last()
+    d.display()
+
 
